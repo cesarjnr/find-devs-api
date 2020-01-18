@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 
+const routes = require('./routes');
+
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -10,11 +12,6 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.use(express.json());
-
-app.delete('/users/:id', (req, res) => {
-    console.log(req.params);
-
-    res.json({ message: 'Hello World' });
-});
+app.use(routes);
 
 app.listen(3333);
