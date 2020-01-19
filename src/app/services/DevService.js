@@ -1,7 +1,11 @@
 const Dev = require('../models/Dev');
 
 class DevService {
-  async find(params) {
+  async index() {
+    return await Dev.find();
+  }
+
+  async findOne(params) {
     return await Dev.findOne(params);
   }
 
