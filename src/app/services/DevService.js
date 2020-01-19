@@ -1,7 +1,9 @@
-const Dev = require('./models/Dev');
+const Dev = require('../models/Dev');
 
-export default class DevService {
-  async create(data) {
+class DevService {
+  async store(data) {
     return await Dev.create(data);
   }
 }
+
+module.exports = DevService;

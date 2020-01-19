@@ -30,4 +30,4 @@ class DevController {
     }
 }
 
-export default new DevController();
+module.exports = new DevController();
