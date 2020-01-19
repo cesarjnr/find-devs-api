@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+const parseStringAsArray = require('../../utils/parseStringAsArray');
 const DevService = require('../services/DevService');
 
 class DevController {
@@ -19,7 +20,7 @@ class DevController {
 
             const { name = login, avatar_url, bio } = githubApiResponse.data;
     
-            const techsArray = techs.split(',').map(tech => tech.trim());
+            const techsArray = parseStringAsArray(techs);
     
             const location = {
                 type: 'Point',
