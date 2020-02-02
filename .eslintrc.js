@@ -34,7 +34,7 @@ module.exports = {
    ],
    '@typescript-eslint/camelcase': [
      'error',
-     { properties: 'never'}
+     { properties: 'never' , ignoreDestructuring: true }
     ]
   },
 };
