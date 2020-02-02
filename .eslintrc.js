@@ -20,5 +20,10 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      { 'ts': 'never' }
+   ],
   },
 };
