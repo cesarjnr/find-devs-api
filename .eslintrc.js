@@ -32,5 +32,9 @@ module.exports = {
       'ignorePackages',
       { ts: 'never' }
    ],
+   '@typescript-eslint/camelcase': [
+     'error',
+     { properties: 'never'}
+    ]
   },
 };
