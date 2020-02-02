@@ -12,7 +12,6 @@ export default class DevController {
   }
 
   static async store(req: Request, res: Response): Promise<Response> {
-    console.log(req);
     const {
       github_username, techs, latitude, longitude,
     } = req.body;

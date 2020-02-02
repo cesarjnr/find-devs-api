@@ -9,9 +9,15 @@ class App {
 
   constructor() {
     this.express = express();
+    this.middlewares();
     this.routes();
+
     dotenv.config();
     App.database();
+  }
+
+  private middlewares(): void {
+    this.express.use(express.json());
   }
 
   private routes(): void {
