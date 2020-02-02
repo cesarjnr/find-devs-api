@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true
   },
   extends: [
     'airbnb-base',
@@ -27,6 +28,8 @@ module.exports = {
     },
   },
   rules: {
+    'max-len': 'off',
+    'arrow-parens': ['error', 'as-needed'],
     'import/extensions': [
       'error',
       'ignorePackages',
