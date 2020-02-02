@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 
 // const DevController = require('./app/controllers/DevController');
 // const SearchController = require('./app/controllers/SearchController');
