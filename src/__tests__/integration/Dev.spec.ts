@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import { closeDatabase, clearDatabase } from '../../utils/testdb-handler';
+import { closeDatabase, clearDatabase } from '../../app/database/testdb-handler';
 import app from '../../app';
 import Dev from '../../app/models/Dev';
 
