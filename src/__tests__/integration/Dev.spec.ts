@@ -1,10 +1,11 @@
 import request from 'supertest';
 
-import { closeDatabase } from '../testdb-handler';
+import { closeDatabase, clearDatabase } from '../../utils/testdb-handler';
 import app from '../../app';
 import Dev from '../../app/models/Dev';
 
 describe('Dev functionalities tests', () => {
+  afterEach(async () => clearDatabase());
   afterAll(async () => closeDatabase());
 
   it('should store 1 dev', async () => {
@@ -39,11 +40,11 @@ describe('Dev functionalities tests', () => {
       longitude: -43.281157,
     };
 
-    const devs = await Dev.find();
-
     const response = await request(app)
       .post('/devs')
       .send(existingUserData);
+
+    const devs = await Dev.find();
 
     expect(response.status).toBe(200);
     expect(devs.length).toBe(1);

@@ -35,9 +35,6 @@ module.exports = {
       'ignorePackages',
       { ts: 'never' }
    ],
-   '@typescript-eslint/camelcase': [
-     'error',
-     { properties: 'never' , ignoreDestructuring: true }
-    ]
+   '@typescript-eslint/camelcase': 'off'
   },
 };

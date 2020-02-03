@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
 const mongod = new MongoMemoryServer();
 
-export const connectToTestDB = async (): Promise<void> => {
+export const connect = async (): Promise<void> => {
   const uri = await mongod.getConnectionString();
 
   const mongooseOpts = {
@@ -15,19 +16,21 @@ export const connectToTestDB = async (): Promise<void> => {
   await mongoose.connect(uri, mongooseOpts);
 };
 
+export const clearDatabase = async (): Promise<void> => {
+  const { collections } = mongoose.connection;
+
+  Promise.all(
+    Object
+      .keys(collections)
+      .map(async key => {
+        const collection = collections[key];
+        await collection.deleteMany({});
+      }),
+  );
+};
+
 export const closeDatabase = async (): Promise<void> => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
   await mongod.stop();
 };
-
-// export const clearDatabase = async (): Promise<void> => {
-//   const { collections } = mongoose.connection;
-
-//   Object
-//     .keys(collections)
-//     .map(async key => {
-//       const collection = collections[key];
-//       await collection.deleteMany({});
-//     });
-// };

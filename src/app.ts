@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import routes from './routes';
-import { connectToTestDB } from './__tests__/testdb-handler';
+import { connect } from './utils/testdb-handler';
 
 class App {
   public express: express.Application;
@@ -27,7 +27,7 @@ class App {
 
   static database(): void {
     if (process.env.NODE_ENV === 'test') {
-      connectToTestDB();
+      connect();
     } else {
       mongoose.connect(process.env.MONGO_URI!, {
         useNewUrlParser: true,
