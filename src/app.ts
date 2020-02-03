@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 import routes from './routes';
-import { connect } from './utils/testdb-handler';
+import { connect } from './app/database/testdb-handler';
 
 class App {
   public express: express.Application;

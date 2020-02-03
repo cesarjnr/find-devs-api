@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
-const mongod = new MongoMemoryServer();
+const mongod = new MongoMemoryServer({ debug: true });
 
 export const connect = async (): Promise<void> => {
   const uri = await mongod.getConnectionString();

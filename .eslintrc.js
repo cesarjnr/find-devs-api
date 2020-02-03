@@ -30,6 +30,7 @@ module.exports = {
   rules: {
     'max-len': 'off',
     'arrow-parens': ['error', 'as-needed'],
+    'import/no-extraneous-dependencies': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
