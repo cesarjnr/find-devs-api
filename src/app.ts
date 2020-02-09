@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import routes from './routes';
 import { connect } from './app/database/testdb-handler';
@@ -18,6 +19,7 @@ class App {
   }
 
   private middlewares(): void {
+    this.express.use(cors());
     this.express.use(express.json());
   }
 
